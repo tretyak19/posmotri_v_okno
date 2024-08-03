@@ -9,6 +9,7 @@ html {
 }
 
 .page {
+  display: flex;
   inline-size: 1200px;
   block-size: 100%;
   margin: auto;
@@ -38,11 +39,9 @@ ol {
 }
 
 .content {
-  display: flex;
-  margin-top: 133px;
-  margin-left: 30px;
-  width: 1140px;
-  height: 534px;
+  display: grid;
+  grid-template-columns: 711px 1fr;
+  margin: auto;
 }
 
 .result {
@@ -70,14 +69,7 @@ ol {
   position: relative;
   height: 298px;
   overflow: auto;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
   margin-left: 30px;
-}
-
-.content__list::-webkit-scrollbar {
-  width: 0;
-  height: 0;
 }
 
 .content__details {
@@ -98,7 +90,7 @@ ol {
   padding-bottom: 30px;
 }
 
-.content__video-card{ 
+.content__video-card { 
   display: flex;
   flex-direction: row;
   align-items: start;
@@ -106,8 +98,10 @@ ol {
 }
 
 .content__video-card-thumbnail {
-  width: 194px;
   height: 103px;
+  width: 194px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .content__video-card-description-container {
@@ -121,12 +115,11 @@ ol {
 }
 
 .content__accent {
-  opacity: 0.2;
+  color: #545050;
 }
 
 .content__card-link {
   display: block;
-  margin: 2px;
   text-decoration: none;
   color: #fff;
 }
@@ -136,6 +129,10 @@ ol {
   text-transform: uppercase;
   size: 30px;
   line-height: 30px;
+  max-width: 200px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .content__video-card-description {
@@ -156,12 +153,21 @@ fieldset {
   border: none;
 }
 
+.search-form__label {
+  display: flex;
+  align-items: center;
+}
+
+.search-form__label-text {
+  padding-left: 5px;
+}
+
 .search-form__label:has(:focus-visible) {
   outline: 1px solid #fff;
   outline-offset: 2px;
 }
 
-.search-form__label:hover {
+.search-form__label:hover .search-form__label-text {
   text-decoration: underline;
   cursor: pointer;
 }
@@ -173,6 +179,7 @@ fieldset {
   width: 225px;
   height: 27px;
   font-size: 18px;
+  color: #FFFFFFB2;
   border: none;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
@@ -215,9 +222,9 @@ button {
   cursor: pointer;
   background-color: transparent; 
   color: #fff;
-  border: 1px solid #fff;
+  border: 1px solid currentColor;
   inline-size: 100%;
-  block-size: 34px;
+  min-height: 34px;
   align-self: end;
 }
 
@@ -246,9 +253,12 @@ button:active {
 .more-button {
   width: 100%;
 }
+.content__card-link_current{
+  background-color: #545050;
+}
 
 .content__card-link_current:focus {
-  background-color: #545050;
+  outline: none;
 }
 
 .content__card-link:active {
