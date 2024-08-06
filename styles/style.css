@@ -42,6 +42,8 @@ ol {
   display: grid;
   grid-template-columns: 711px 1fr;
   margin: auto;
+  width: 1140px;
+  align-items: end;
 }
 
 .result {
